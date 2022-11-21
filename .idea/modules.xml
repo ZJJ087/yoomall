@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/mymall-common/mymall-common.iml" filepath="$PROJECT_DIR$/mymall-common/mymall-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product/product.iml" filepath="$PROJECT_DIR$/product/product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/renren-generator-master/renren-generator.iml" filepath="$PROJECT_DIR$/renren-generator-master/renren-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/yoomall.iml" filepath="$PROJECT_DIR$/yoomall.iml" />
     </modules>
   </component>

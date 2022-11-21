@@ -10,4 +10,11 @@
     <description>聚合服务</description>
     <packaging>pom</packaging>
 
+    <modules>
+        <!--商品子系统-->
+        <module>product</module>
+        <!--公共模块-->
+        <module>mymall-common</module>
+        <module>renren-generator-master</module>
+    </modules>
 </project>
