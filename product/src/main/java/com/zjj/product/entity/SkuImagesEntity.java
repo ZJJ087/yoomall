@@ -1,42 +1,88 @@
 package com.zjj.product.entity;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-
 import java.io.Serializable;
-import java.util.Date;
-import lombok.Data;
 
-/**
- * sku图片
- * 
- * @author zhangjiajun
- * @email 804530103@qq.com
- * @date 2022-11-21 21:20:35
- */
-@Data
 public class SkuImagesEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private Long id;
 
-	/**
-	 * id
-	 */
-		private Long id;
-	/**
-	 * sku_id
-	 */
-	private Long skuId;
-	/**
-	 * 图片地址
-	 */
-	private String imgUrl;
-	/**
-	 * 排序
-	 */
-	private Integer imgSort;
-	/**
-	 * 默认图[0 - 不是默认图，1 - 是默认图]
-	 */
-	private Integer defaultImg;
+    private Long skuId;
 
+    private String imgUrl;
+
+    private Integer imgSort;
+
+    private Integer defaultImg;
+
+    private static final long serialVersionUID = 1L;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getSkuId() {
+        return skuId;
+    }
+
+    public void setSkuId(Long skuId) {
+        this.skuId = skuId;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
+    }
+
+    public Integer getImgSort() {
+        return imgSort;
+    }
+
+    public void setImgSort(Integer imgSort) {
+        this.imgSort = imgSort;
+    }
+
+    public Integer getDefaultImg() {
+        return defaultImg;
+    }
+
+    public void setDefaultImg(Integer defaultImg) {
+        this.defaultImg = defaultImg;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        SkuImagesEntity other = (SkuImagesEntity) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getSkuId() == null ? other.getSkuId() == null : this.getSkuId().equals(other.getSkuId()))
+            && (this.getImgUrl() == null ? other.getImgUrl() == null : this.getImgUrl().equals(other.getImgUrl()))
+            && (this.getImgSort() == null ? other.getImgSort() == null : this.getImgSort().equals(other.getImgSort()))
+            && (this.getDefaultImg() == null ? other.getDefaultImg() == null : this.getDefaultImg().equals(other.getDefaultImg()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getSkuId() == null) ? 0 : getSkuId().hashCode());
+        result = prime * result + ((getImgUrl() == null) ? 0 : getImgUrl().hashCode());
+        result = prime * result + ((getImgSort() == null) ? 0 : getImgSort().hashCode());
+        result = prime * result + ((getDefaultImg() == null) ? 0 : getDefaultImg().hashCode());
+        return result;
+    }
 }

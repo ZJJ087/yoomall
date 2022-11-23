@@ -15,6 +15,5 @@
         <module>product</module>
         <!--公共模块-->
         <module>mymall-common</module>
-        <module>renren-generator-master</module>
     </modules>
 </project>

@@ -1,12 +1,11 @@
 package com.zjj.product.mapper;
 
+import com.zjj.product.entity.SkuSaleAttrValueEntity;
 import org.apache.ibatis.annotations.Mapper;
 
-/**
- * @author zhangjiajun
- * @date 2022/10/22 19:35
- * @description
- */
 @Mapper
 public interface SkuSaleAttrValueEntityMapper {
+    int insert(SkuSaleAttrValueEntity record);
+
+    int insertSelective(SkuSaleAttrValueEntity record);
 }

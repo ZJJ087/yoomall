@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjj.product.mapper.SkuInfoEntityMapper">
+  <resultMap id="BaseResultMap" type="com.zjj.product.entity.SkuInfoEntity">
+    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
+    <result column="spu_id" jdbcType="BIGINT" property="spuId" />
+    <result column="sku_name" jdbcType="VARCHAR" property="skuName" />
+    <result column="sku_desc" jdbcType="VARCHAR" property="skuDesc" />
+    <result column="catalog_id" jdbcType="BIGINT" property="catalogId" />
+    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
+    <result column="sku_default_img" jdbcType="VARCHAR" property="skuDefaultImg" />
+    <result column="sku_title" jdbcType="VARCHAR" property="skuTitle" />
+    <result column="sku_subtitle" jdbcType="VARCHAR" property="skuSubtitle" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="sale_count" jdbcType="BIGINT" property="saleCount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zjj.product.entity.SkuInfoEntity">
+    insert into pms_sku_info (sku_id, spu_id, sku_name, 
+      sku_desc, catalog_id, brand_id, 
+      sku_default_img, sku_title, sku_subtitle, 
+      price, sale_count)
+    values (#{skuId,jdbcType=BIGINT}, #{spuId,jdbcType=BIGINT}, #{skuName,jdbcType=VARCHAR}, 
+      #{skuDesc,jdbcType=VARCHAR}, #{catalogId,jdbcType=BIGINT}, #{brandId,jdbcType=BIGINT}, 
+      #{skuDefaultImg,jdbcType=VARCHAR}, #{skuTitle,jdbcType=VARCHAR}, #{skuSubtitle,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{saleCount,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjj.product.entity.SkuInfoEntity">
+    insert into pms_sku_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="skuName != null">
+        sku_name,
+      </if>
+      <if test="skuDesc != null">
+        sku_desc,
+      </if>
+      <if test="catalogId != null">
+        catalog_id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="skuDefaultImg != null">
+        sku_default_img,
+      </if>
+      <if test="skuTitle != null">
+        sku_title,
+      </if>
+      <if test="skuSubtitle != null">
+        sku_subtitle,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="saleCount != null">
+        sale_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="skuId != null">
+        #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=BIGINT},
+      </if>
+      <if test="skuName != null">
+        #{skuName,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDesc != null">
+        #{skuDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogId != null">
+        #{catalogId,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="skuDefaultImg != null">
+        #{skuDefaultImg,jdbcType=VARCHAR},
+      </if>
+      <if test="skuTitle != null">
+        #{skuTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="skuSubtitle != null">
+        #{skuSubtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="saleCount != null">
+        #{saleCount,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

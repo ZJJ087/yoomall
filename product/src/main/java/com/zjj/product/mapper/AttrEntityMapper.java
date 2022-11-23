@@ -1,12 +1,11 @@
 package com.zjj.product.mapper;
 
+import com.zjj.product.entity.AttrEntity;
 import org.apache.ibatis.annotations.Mapper;
 
-/**
- * @author zhangjiajun
- * @date 2022/10/22 19:30
- * @description
- */
 @Mapper
 public interface AttrEntityMapper {
+    int insert(AttrEntity record);
+
+    int insertSelective(AttrEntity record);
 }

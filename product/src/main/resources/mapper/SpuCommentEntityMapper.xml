@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjj.product.mapper.SpuCommentEntityMapper">
+  <resultMap id="BaseResultMap" type="com.zjj.product.entity.SpuCommentEntity">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
+    <result column="spu_id" jdbcType="BIGINT" property="spuId" />
+    <result column="spu_name" jdbcType="VARCHAR" property="spuName" />
+    <result column="member_nick_name" jdbcType="VARCHAR" property="memberNickName" />
+    <result column="star" jdbcType="BIT" property="star" />
+    <result column="member_ip" jdbcType="VARCHAR" property="memberIp" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="show_status" jdbcType="BIT" property="showStatus" />
+    <result column="spu_attributes" jdbcType="VARCHAR" property="spuAttributes" />
+    <result column="likes_count" jdbcType="INTEGER" property="likesCount" />
+    <result column="reply_count" jdbcType="INTEGER" property="replyCount" />
+    <result column="resources" jdbcType="VARCHAR" property="resources" />
+    <result column="member_icon" jdbcType="VARCHAR" property="memberIcon" />
+    <result column="comment_type" jdbcType="TINYINT" property="commentType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zjj.product.entity.SpuCommentEntity">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <insert id="insert" parameterType="com.zjj.product.entity.SpuCommentEntity">
+    insert into pms_spu_comment (id, sku_id, spu_id, 
+      spu_name, member_nick_name, star, 
+      member_ip, create_time, show_status, 
+      spu_attributes, likes_count, reply_count, 
+      resources, member_icon, comment_type, 
+      content)
+    values (#{id,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{spuId,jdbcType=BIGINT}, 
+      #{spuName,jdbcType=VARCHAR}, #{memberNickName,jdbcType=VARCHAR}, #{star,jdbcType=BIT}, 
+      #{memberIp,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{showStatus,jdbcType=BIT}, 
+      #{spuAttributes,jdbcType=VARCHAR}, #{likesCount,jdbcType=INTEGER}, #{replyCount,jdbcType=INTEGER}, 
+      #{resources,jdbcType=VARCHAR}, #{memberIcon,jdbcType=VARCHAR}, #{commentType,jdbcType=TINYINT}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjj.product.entity.SpuCommentEntity">
+    insert into pms_spu_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="spuName != null">
+        spu_name,
+      </if>
+      <if test="memberNickName != null">
+        member_nick_name,
+      </if>
+      <if test="star != null">
+        star,
+      </if>
+      <if test="memberIp != null">
+        member_ip,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="showStatus != null">
+        show_status,
+      </if>
+      <if test="spuAttributes != null">
+        spu_attributes,
+      </if>
+      <if test="likesCount != null">
+        likes_count,
+      </if>
+      <if test="replyCount != null">
+        reply_count,
+      </if>
+      <if test="resources != null">
+        resources,
+      </if>
+      <if test="memberIcon != null">
+        member_icon,
+      </if>
+      <if test="commentType != null">
+        comment_type,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=BIGINT},
+      </if>
+      <if test="spuName != null">
+        #{spuName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberNickName != null">
+        #{memberNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="star != null">
+        #{star,jdbcType=BIT},
+      </if>
+      <if test="memberIp != null">
+        #{memberIp,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=BIT},
+      </if>
+      <if test="spuAttributes != null">
+        #{spuAttributes,jdbcType=VARCHAR},
+      </if>
+      <if test="likesCount != null">
+        #{likesCount,jdbcType=INTEGER},
+      </if>
+      <if test="replyCount != null">
+        #{replyCount,jdbcType=INTEGER},
+      </if>
+      <if test="resources != null">
+        #{resources,jdbcType=VARCHAR},
+      </if>
+      <if test="memberIcon != null">
+        #{memberIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="commentType != null">
+        #{commentType,jdbcType=TINYINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

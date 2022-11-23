@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjj.product.mapper.SkuSaleAttrValueEntityMapper">
+  <resultMap id="BaseResultMap" type="com.zjj.product.entity.SkuSaleAttrValueEntity">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
+    <result column="attr_id" jdbcType="BIGINT" property="attrId" />
+    <result column="attr_name" jdbcType="VARCHAR" property="attrName" />
+    <result column="attr_value" jdbcType="VARCHAR" property="attrValue" />
+    <result column="attr_sort" jdbcType="INTEGER" property="attrSort" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zjj.product.entity.SkuSaleAttrValueEntity">
+    insert into pms_sku_sale_attr_value (id, sku_id, attr_id, 
+      attr_name, attr_value, attr_sort
+      )
+    values (#{id,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{attrId,jdbcType=BIGINT}, 
+      #{attrName,jdbcType=VARCHAR}, #{attrValue,jdbcType=VARCHAR}, #{attrSort,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjj.product.entity.SkuSaleAttrValueEntity">
+    insert into pms_sku_sale_attr_value
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="attrId != null">
+        attr_id,
+      </if>
+      <if test="attrName != null">
+        attr_name,
+      </if>
+      <if test="attrValue != null">
+        attr_value,
+      </if>
+      <if test="attrSort != null">
+        attr_sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="attrId != null">
+        #{attrId,jdbcType=BIGINT},
+      </if>
+      <if test="attrName != null">
+        #{attrName,jdbcType=VARCHAR},
+      </if>
+      <if test="attrValue != null">
+        #{attrValue,jdbcType=VARCHAR},
+      </if>
+      <if test="attrSort != null">
+        #{attrSort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjj.product.mapper.CategoryBrandRelationEntityMapper">
+  <resultMap id="BaseResultMap" type="com.zjj.product.entity.CategoryBrandRelationEntity">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
+    <result column="catelog_id" jdbcType="BIGINT" property="catelogId" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="catelog_name" jdbcType="VARCHAR" property="catelogName" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zjj.product.entity.CategoryBrandRelationEntity">
+    insert into pms_category_brand_relation (id, brand_id, catelog_id, 
+      brand_name, catelog_name)
+    values (#{id,jdbcType=BIGINT}, #{brandId,jdbcType=BIGINT}, #{catelogId,jdbcType=BIGINT}, 
+      #{brandName,jdbcType=VARCHAR}, #{catelogName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjj.product.entity.CategoryBrandRelationEntity">
+    insert into pms_category_brand_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="catelogId != null">
+        catelog_id,
+      </if>
+      <if test="brandName != null">
+        brand_name,
+      </if>
+      <if test="catelogName != null">
+        catelog_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="catelogId != null">
+        #{catelogId,jdbcType=BIGINT},
+      </if>
+      <if test="brandName != null">
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="catelogName != null">
+        #{catelogName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

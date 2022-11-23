@@ -1,12 +1,11 @@
 package com.zjj.product.mapper;
 
+import com.zjj.product.entity.CategoryBrandRelationEntity;
 import org.apache.ibatis.annotations.Mapper;
 
-/**
- * @author zhangjiajun
- * @date 2022/10/22 19:32
- * @description
- */
 @Mapper
 public interface CategoryBrandRelationEntityMapper {
+    int insert(CategoryBrandRelationEntity record);
+
+    int insertSelective(CategoryBrandRelationEntity record);
 }

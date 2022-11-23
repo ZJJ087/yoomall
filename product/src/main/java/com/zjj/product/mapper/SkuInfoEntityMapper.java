@@ -1,12 +1,11 @@
 package com.zjj.product.mapper;
 
+import com.zjj.product.entity.SkuInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
 
-/**
- * @author zhangjiajun
- * @date 2022/10/22 19:35
- * @description
- */
 @Mapper
 public interface SkuInfoEntityMapper {
+    int insert(SkuInfoEntity record);
+
+    int insertSelective(SkuInfoEntity record);
 }

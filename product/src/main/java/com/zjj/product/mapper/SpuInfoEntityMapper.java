@@ -1,12 +1,11 @@
 package com.zjj.product.mapper;
 
+import com.zjj.product.entity.SpuInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
 
-/**
- * @author zhangjiajun
- * @date 2022/10/22 19:37
- * @description
- */
 @Mapper
 public interface SpuInfoEntityMapper {
+    int insert(SpuInfoEntity record);
+
+    int insertSelective(SpuInfoEntity record);
 }

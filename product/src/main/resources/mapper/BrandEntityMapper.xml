@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjj.product.mapper.BrandEntityMapper">
+  <resultMap id="BaseResultMap" type="com.zjj.product.entity.BrandEntity">
+    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
+    <result column="name" jdbcType="CHAR" property="name" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="show_status" jdbcType="TINYINT" property="showStatus" />
+    <result column="first_letter" jdbcType="CHAR" property="firstLetter" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zjj.product.entity.BrandEntity">
+    <result column="descript" jdbcType="LONGVARCHAR" property="descript" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    descript
+  </sql>
+  <insert id="insert" parameterType="com.zjj.product.entity.BrandEntity">
+    insert into pms_brand (brand_id, name, logo, 
+      show_status, first_letter, sort, 
+      descript)
+    values (#{brandId,jdbcType=BIGINT}, #{name,jdbcType=CHAR}, #{logo,jdbcType=VARCHAR}, 
+      #{showStatus,jdbcType=TINYINT}, #{firstLetter,jdbcType=CHAR}, #{sort,jdbcType=INTEGER}, 
+      #{descript,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjj.product.entity.BrandEntity">
+    insert into pms_brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="showStatus != null">
+        show_status,
+      </if>
+      <if test="firstLetter != null">
+        first_letter,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="descript != null">
+        descript,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="brandId != null">
+        #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=TINYINT},
+      </if>
+      <if test="firstLetter != null">
+        #{firstLetter,jdbcType=CHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="descript != null">
+        #{descript,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
