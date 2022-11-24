@@ -15,5 +15,7 @@
         <module>product</module>
         <!--公共模块-->
         <module>mymall-common</module>
+        <!--网关-->
+        <module>gateway</module>
     </modules>
 </project>

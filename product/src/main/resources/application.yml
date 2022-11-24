@@ -4,11 +4,8 @@ spring:
     url: jdbc:mysql://10.21.25.137:3306/gulimall_pms?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: root
-  application:
-    name: product
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-server:
-  port: 8999
+

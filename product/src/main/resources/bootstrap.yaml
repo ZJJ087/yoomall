@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: product
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848 #配置中心
+        namespace: af15b852-dbb7-4ba5-bc58-63c6c47ed63f
+        file-extension: yaml
+      discovery:
+        server-addr: 127.0.0.1:8848 #服务发现
+server:
+  port: 8999 #端口
