@@ -17,4 +17,10 @@ public interface CategoryService {
      * @return
      */
     ServerResponse<List<CategoryVo>> listWithTree();
+
+    ServerResponse<List<CategoryEntity>> queryAll();
+
+    ServerResponse insertCategory(CategoryEntity params);
+
+    ServerResponse updateCategory(CategoryEntity params);
 }

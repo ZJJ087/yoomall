@@ -12,16 +12,7 @@
     <result column="product_unit" jdbcType="CHAR" property="productUnit" />
     <result column="product_count" jdbcType="INTEGER" property="productCount" />
   </resultMap>
-  <insert id="insert" parameterType="com.zjj.product.entity.CategoryEntity">
-    insert into pms_category (cat_id, name, parent_cid, 
-      cat_level, show_status, sort, 
-      icon, product_unit, product_count
-      )
-    values (#{catId,jdbcType=BIGINT}, #{name,jdbcType=CHAR}, #{parentCid,jdbcType=BIGINT}, 
-      #{catLevel,jdbcType=INTEGER}, #{showStatus,jdbcType=TINYINT}, #{sort,jdbcType=INTEGER}, 
-      #{icon,jdbcType=CHAR}, #{productUnit,jdbcType=CHAR}, #{productCount,jdbcType=INTEGER}
-      )
-  </insert>
+
   <insert id="insertSelective" parameterType="com.zjj.product.entity.CategoryEntity">
     insert into pms_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -83,4 +74,36 @@
       </if>
     </trim>
   </insert>
+
+  <update id="update" parameterType="com.zjj.product.entity.CategoryEntity">
+    update pms_category
+    <set>
+      <if test="name != null or name.length() > 0">
+        name=#{name},
+      </if>
+      <if test="parentCid != null">
+        parent_cid=#{parentCid},
+      </if>
+      <if test="catLevel != null">
+        cat_level=#{catLevel},
+      </if>
+      <if test="showStatus != null">
+        show_status=#{showStatus},
+      </if>
+      <if test="sort != null">
+        sort=#{sort},
+      </if>
+      <if test="icon != null and icon.length() > 0">
+        icon=#{icon},
+      </if>
+      <if test="productUnit != null">
+        product_unit=#{productUnit},
+      </if>
+      <if test="productCount != null">
+        product_count=#{productCount},
+      </if>
+    </set>
+    where
+        cat_id=#{catId}
+  </update>
 </mapper>

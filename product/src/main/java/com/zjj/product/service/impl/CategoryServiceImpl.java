@@ -55,4 +55,30 @@ public class CategoryServiceImpl implements CategoryService {
         return new ServerResponse<List<CategoryVo>>(200,"获取三级分类成功",top);
     }
 
+    @Override
+    public ServerResponse<List<CategoryEntity>> queryAll() {
+        List<CategoryEntity> all = categoryEntityMapper.findEntity();
+        return new ServerResponse<>(200,"请求成功",all);
+    }
+
+    @Override
+    public ServerResponse insertCategory(CategoryEntity params) {
+        String categoryName = params.getName();
+        CategoryEntity entity = categoryEntityMapper.findCategoryByName(categoryName);
+        if(entity != null){
+            return new ServerResponse(201,"该分类已存在");
+        }
+        int result = categoryEntityMapper.insert(params);
+        return new ServerResponse(200,"保存成功");
+    }
+
+    @Override
+    public ServerResponse updateCategory(CategoryEntity params) {
+        int result = categoryEntityMapper.update(params);
+        if (result == 1){
+            return new ServerResponse(200,"修改成功");
+        }
+        return new ServerResponse(201,"修改失败");
+    }
+
 }

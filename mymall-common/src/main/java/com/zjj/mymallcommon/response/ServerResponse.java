@@ -19,4 +19,8 @@ public class ServerResponse<T> implements Serializable {
         this.message = message;
         this.data = data;
     }
+    public ServerResponse(Integer code,String message){
+        this.code = code;
+        this.message = message;
+    }
 }
