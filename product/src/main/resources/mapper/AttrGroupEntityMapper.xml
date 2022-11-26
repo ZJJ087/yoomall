@@ -9,6 +9,11 @@
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="catelog_id" jdbcType="BIGINT" property="catelogId" />
   </resultMap>
+
+  <select id="findAll" resultType="com.zjj.product.entity.AttrGroupEntity">
+    select * from pms_attr_group
+  </select>
+
   <insert id="insert" parameterType="com.zjj.product.entity.AttrGroupEntity">
     insert into pms_attr_group (attr_group_id, attr_group_name, sort, 
       descript, icon, catelog_id

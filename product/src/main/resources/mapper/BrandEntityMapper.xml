@@ -15,14 +15,27 @@
   <sql id="Blob_Column_List">
     descript
   </sql>
-  <insert id="insert" parameterType="com.zjj.product.entity.BrandEntity">
-    insert into pms_brand (brand_id, name, logo, 
-      show_status, first_letter, sort, 
-      descript)
-    values (#{brandId,jdbcType=BIGINT}, #{name,jdbcType=CHAR}, #{logo,jdbcType=VARCHAR}, 
-      #{showStatus,jdbcType=TINYINT}, #{firstLetter,jdbcType=CHAR}, #{sort,jdbcType=INTEGER}, 
-      #{descript,jdbcType=LONGVARCHAR})
-  </insert>
+
+  <update id="update" parameterType="com.zjj.product.entity.BrandEntity">
+    update pms_brand
+    <set>
+      <if test="name != null and name.length() >0">
+        name=#{name},first_letter=#{firstLetter},
+      </if>
+      <if test="logo != null and logo.length() > 0">
+        logo=#{logo},
+      </if>
+      <if test="showStatus != null and showStatus.length() >0">
+        showStatus=#{showStatus},
+      </if>
+      <if test="descript != null and descript.length() > 0">
+        descript=#{descript}
+      </if>
+    </set>
+    where
+      brand_id=#{brandId}
+  </update>
+
   <insert id="insertSelective" parameterType="com.zjj.product.entity.BrandEntity">
     insert into pms_brand
     <trim prefix="(" suffix=")" suffixOverrides=",">

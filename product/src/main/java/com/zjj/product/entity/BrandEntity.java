@@ -1,18 +1,27 @@
 package com.zjj.product.entity;
 
+import org.hibernate.validator.constraints.URL;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 public class BrandEntity implements Serializable {
     private Long brandId;
 
+    @NotBlank(message = "品牌名不能为空")
     private String name;
 
+    @URL(message = "链接格式错误")
     private String logo;
 
     private Byte showStatus;
 
+    @Pattern(regexp = "^[a-zA-Z]$",message = "首字母必须是字母")
     private String firstLetter;
 
+    @Min(value = 0,message = "排序字段必须大于0")
     private Integer sort;
 
     private String descript;
