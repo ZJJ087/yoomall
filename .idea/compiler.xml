@@ -9,11 +9,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="product" />
         <module name="mymall-common" />
+        <module name="coupon" />
         <module name="thirdparty" />
         <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="coupon" target="1.8" />
       <module name="gateway" target="1.8" />
       <module name="mymall-common" target="1.8" />
       <module name="product" target="1.8" />

@@ -80,7 +80,6 @@
 
     <build>
         <plugins>
-            <!--mybatis generator-->
             <!-- mybatis.generator -->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>

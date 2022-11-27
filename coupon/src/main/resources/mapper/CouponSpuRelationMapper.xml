@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjj.coupon.mapper.CouponSpuRelationMapper">
+  <resultMap id="BaseResultMap" type="com.zjj.coupon.entity.CouponSpuRelation">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="spu_id" jdbcType="BIGINT" property="spuId" />
+    <result column="spu_name" jdbcType="VARCHAR" property="spuName" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zjj.coupon.entity.CouponSpuRelation">
+    insert into sms_coupon_spu_relation (id, coupon_id, spu_id, 
+      spu_name)
+    values (#{id,jdbcType=BIGINT}, #{couponId,jdbcType=BIGINT}, #{spuId,jdbcType=BIGINT}, 
+      #{spuName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjj.coupon.entity.CouponSpuRelation">
+    insert into sms_coupon_spu_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="spuName != null">
+        spu_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=BIGINT},
+      </if>
+      <if test="spuName != null">
+        #{spuName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

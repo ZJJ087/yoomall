@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjj.coupon.mapper.MemberPriceMapper">
+  <resultMap id="BaseResultMap" type="com.zjj.coupon.entity.MemberPrice">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
+    <result column="member_level_id" jdbcType="BIGINT" property="memberLevelId" />
+    <result column="member_level_name" jdbcType="VARCHAR" property="memberLevelName" />
+    <result column="member_price" jdbcType="DECIMAL" property="memberPrice" />
+    <result column="add_other" jdbcType="BIT" property="addOther" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zjj.coupon.entity.MemberPrice">
+    insert into sms_member_price (id, sku_id, member_level_id, 
+      member_level_name, member_price, add_other
+      )
+    values (#{id,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{memberLevelId,jdbcType=BIGINT}, 
+      #{memberLevelName,jdbcType=VARCHAR}, #{memberPrice,jdbcType=DECIMAL}, #{addOther,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjj.coupon.entity.MemberPrice">
+    insert into sms_member_price
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="memberLevelId != null">
+        member_level_id,
+      </if>
+      <if test="memberLevelName != null">
+        member_level_name,
+      </if>
+      <if test="memberPrice != null">
+        member_price,
+      </if>
+      <if test="addOther != null">
+        add_other,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="memberLevelId != null">
+        #{memberLevelId,jdbcType=BIGINT},
+      </if>
+      <if test="memberLevelName != null">
+        #{memberLevelName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberPrice != null">
+        #{memberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="addOther != null">
+        #{addOther,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

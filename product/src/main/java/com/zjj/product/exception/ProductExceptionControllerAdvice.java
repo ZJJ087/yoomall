@@ -1,13 +1,10 @@
 package com.zjj.product.exception;
 
-import com.zjj.mymallcommon.response.BizCodeEnume;
+import com.zjj.mymallcommon.response.CodeEnum;
 import com.zjj.mymallcommon.response.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.Server;
-import org.apache.shiro.crypto.hash.Hash;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -29,7 +26,7 @@ public class ProductExceptionControllerAdvice {
         bindingResult.getFieldErrors().forEach((item)->{
             errors.put(item.getField(),item.getDefaultMessage());
         });
-        return new ServerResponse(BizCodeEnume.VALID_PARAMTER_FAIL.getCode(), BizCodeEnume.VALID_PARAMTER_FAIL.getMessage(),errors);
+        return new ServerResponse(CodeEnum.VALID_PARAMETER_FAIL.getCode(), CodeEnum.VALID_PARAMETER_FAIL.getMessage(), errors);
     }
     //Exception太大了,很坑
     /*@ExceptionHandler(value = Exception.class)

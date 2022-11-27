@@ -1,8 +1,10 @@
 package com.zjj.product.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.zjj.mymallcommon.response.ServerResponse;
+import com.zjj.product.entity.CategoryBrandRelationEntity;
+import com.zjj.product.service.CategoryBrandRelationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zhangjiajun
@@ -10,7 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @description
  */
 @RestController
-@RequestMapping("categoryBrandRelation")
+@RequestMapping("/categoryBrandRelation")
 @CrossOrigin
 public class CategoryBrandRelationController {
+    @Autowired
+    private CategoryBrandRelationService categoryBrandRelationService;
+
+    @PostMapping("/save")
+    public ServerResponse save(@RequestBody CategoryBrandRelationEntity params){
+        return categoryBrandRelationService.saveRelation(params);
+    }
 }

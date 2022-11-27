@@ -17,5 +17,7 @@
         <module>mymall-common</module>
         <!--网关-->
         <module>gateway</module>
+        <!--优惠券系统-->
+        <module>coupon</module>
     </modules>
 </project>

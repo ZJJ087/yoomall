@@ -4,9 +4,6 @@ import com.zjj.mymallcommon.response.ServerResponse;
 import com.zjj.product.entity.AttrAttrgroupRelationEntity;
 import com.zjj.product.service.AttrAttrgroupRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.bind.annotation.*;
 
 /**

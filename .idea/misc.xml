@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/mymall-common/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
         <option value="$PROJECT_DIR$/thirdparty/pom.xml" />
+        <option value="$PROJECT_DIR$/coupon/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
