@@ -81,4 +81,9 @@ public class CategoryServiceImpl implements CategoryService {
         return new ServerResponse(201,"修改失败");
     }
 
+    @Override
+    public void deleteCategory(Long id) {
+        categoryEntityMapper.delete(id);
+    }
+
 }

@@ -1,6 +1,9 @@
 package com.zjj.product.service.impl;
 
+import com.zjj.product.mapper.SpuInfoEntityMapper;
 import com.zjj.product.service.SpuInfoDescService;
+import com.zjj.product.service.SpuInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,5 +12,12 @@ import org.springframework.stereotype.Service;
  * @description
  */
 @Service
-public class SpuInfoServiceImpl implements SpuInfoDescService {
+public class SpuInfoServiceImpl implements SpuInfoService {
+    @Autowired
+    private SpuInfoEntityMapper spuInfoEntityMapper;
+
+    @Override
+    public Integer countByCategoryId(Long id){
+        return spuInfoEntityMapper.countByCatelogId(id);
+    }
 }

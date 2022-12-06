@@ -90,4 +90,17 @@
       </if>
     </trim>
   </insert>
+
+  <update id="update" parameterType="com.zjj.product.entity.AttrEntity">
+    update pms_attr
+    <set>
+      <if test="attrName != null and attrName.length() > 0">
+        attr_name=#{attrName},
+      </if>
+      <if test="showDesc != null">
+        show_desc=#{showDesc},
+      </if>
+    </set>
+    where attr_id=#{attrId}
+  </update>
 </mapper>

@@ -22,4 +22,10 @@ public class CategoryBrandRelationServiceImpl implements CategoryBrandRelationSe
         categoryBrandRelationEntityMapper.save(params);
         return new ServerResponse(CodeEnum.REQUEST_SUCCESS.getCode(), CodeEnum.REQUEST_SUCCESS.getMessage());
     }
+
+    @Override
+    public Integer countByCategoryId(Long id) {
+        int count = categoryBrandRelationEntityMapper.countByCatelogId(id);
+        return count;
+    }
 }

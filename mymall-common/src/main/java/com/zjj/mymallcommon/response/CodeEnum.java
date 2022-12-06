@@ -9,7 +9,9 @@ public enum CodeEnum {
     REQUEST_SUCCESS(200,"请求成功"),
     REQUEST_FAIL(201,"请求失败"),
     VALID_PARAMETER_FAIL(202, "请求参数错误,详细信息请看data"),
-    CATELOG_HAS_NO_ATTR(250,"该分类没有属性信息");
+    CATELOG_HAS_NO_ATTR(250,"该分类没有属性信息"),
+    ILLEGAL_DELETE_CATEGORY(251,"该分类还与其他属性或品牌关联，不能删除"),
+    SUCCESS_DELETE_CATEGORY(252,"删除分类成功");
 
     private Integer code;
     private String message;

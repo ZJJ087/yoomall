@@ -29,4 +29,7 @@ public interface CategoryEntityMapper {
     int update(CategoryEntity params);
 
     int insertSelective(CategoryEntity record);
+
+    @Delete("delete from pms_category where cat_id=#{id}")
+    int delete(Long id);
 }

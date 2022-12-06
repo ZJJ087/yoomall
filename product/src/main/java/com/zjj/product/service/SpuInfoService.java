@@ -6,4 +6,5 @@ package com.zjj.product.service;
  * @description
  */
 public interface SpuInfoService {
+    Integer countByCategoryId(Long id);
 }

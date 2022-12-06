@@ -10,4 +10,6 @@ import com.zjj.product.entity.CategoryBrandRelationEntity;
  */
 public interface CategoryBrandRelationService {
     ServerResponse saveRelation(CategoryBrandRelationEntity params);
+
+    Integer countByCategoryId(Long id);
 }

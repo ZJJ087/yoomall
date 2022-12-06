@@ -23,4 +23,6 @@ public interface CategoryService {
     ServerResponse insertCategory(CategoryEntity params);
 
     ServerResponse updateCategory(CategoryEntity params);
+
+    void deleteCategory(Long id);
 }

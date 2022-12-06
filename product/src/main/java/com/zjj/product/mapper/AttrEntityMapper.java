@@ -14,4 +14,9 @@ public interface AttrEntityMapper {
     int insert(AttrEntity record);
 
     int insertSelective(AttrEntity record);
+
+    @Select("select count(0) from pms_attr where catelog_id=#{id}")
+    int countByCatelogId(Long id);
+
+    int update(AttrEntity record);
 }

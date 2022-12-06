@@ -4,6 +4,7 @@ import com.zjj.product.entity.CategoryBrandRelationEntity;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface CategoryBrandRelationEntityMapper {
@@ -15,4 +16,7 @@ public interface CategoryBrandRelationEntityMapper {
     int insert(CategoryBrandRelationEntity record);
 
     int insertSelective(CategoryBrandRelationEntity record);
+
+    @Select("select count(0) from pms_category_brand_relation where catelog_id=#{id}")
+    int countByCatelogId(Long id);
 }
